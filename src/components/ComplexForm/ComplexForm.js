@@ -1,5 +1,11 @@
 import React from "react";
 
+const initialValues = {
+  name: "",
+  email: "",
+  chanel: ""
+};
+
 const ComplexForm = () => {
   return (
     <form>

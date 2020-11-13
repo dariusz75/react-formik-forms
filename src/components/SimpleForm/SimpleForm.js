@@ -9,11 +9,11 @@ const SimpleForm = () => {
       chanel: ""
     },
     onSubmit: (submitedValues) => {
-      console.log("Submited values are:", submitedValues);
+      //console.log("SimpleForm submited values are:", submitedValues);
     }
   });
 
-  console.log("Formik values are:", formik.values);
+  //console.log("SimpleForm values are:", formik.values);
 
   return (
     <form onSubmit={formik.handleSubmit}>
