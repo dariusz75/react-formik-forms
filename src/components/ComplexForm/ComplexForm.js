@@ -10,7 +10,7 @@ const initialValues = {
 };
 
 const onSubmit = (values) => {
-  //console.log(" submited values are:", values);
+  console.log("submited values are:", values);
 };
 
 const validate = (values) => {
@@ -117,7 +117,8 @@ const ComplexForm = () => {
             id="male"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.gender}
+            value="male"
+            checked={formik.values.gender === "male"}
           />
           <label className="form-check-label" htmlFor="male">
             Male
@@ -131,7 +132,8 @@ const ComplexForm = () => {
             id="female"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.gender}
+            value="female"
+            checked={formik.values.gender === "female"}
           />
           <label className="form-check-label" htmlFor="female">
             Female

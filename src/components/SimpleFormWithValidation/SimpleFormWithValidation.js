@@ -2,41 +2,41 @@ import React from "react";
 import { useFormik } from "formik";
 import "./simple-form-with-validation.css";
 
+const initialValues = {
+  name: "",
+  email: "",
+  chanel: ""
+};
+
+const onSubmit = (values) => {
+  console.log("SimpleFormVithValidation submited values are:", values);
+};
+
+const validate = (values) => {
+  let errors = {};
+
+  if (!values.name) {
+    errors.name = "Required";
+  }
+
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (
+    !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+      values.email
+    )
+  ) {
+    errors.email = "Invalid email format";
+  }
+
+  if (!values.chanel) {
+    errors.chanel = "Required";
+  }
+
+  return errors;
+};
+
 const SimpleFormWithValidation = () => {
-  const initialValues = {
-    name: "",
-    email: "",
-    chanel: ""
-  };
-
-  const onSubmit = (values) => {
-    //console.log("SimpleFormVithValidation submited values are:", values);
-  };
-
-  const validate = (values) => {
-    let errors = {};
-
-    if (!values.name) {
-      errors.name = "Required";
-    }
-
-    if (!values.email) {
-      errors.email = "Required";
-    } else if (
-      !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        values.email
-      )
-    ) {
-      errors.email = "Invalid email format";
-    }
-
-    if (!values.chanel) {
-      errors.chanel = "Required";
-    }
-
-    return errors;
-  };
-
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit: onSubmit,
