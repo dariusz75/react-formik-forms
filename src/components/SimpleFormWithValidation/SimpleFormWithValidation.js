@@ -43,9 +43,9 @@ const SimpleFormWithValidation = () => {
     validate: validate
   });
 
-  //console.log("SimpleFormVithValidation values are:", formik.values);
-  //console.log("SimpleFormVithValidation errors are:", formik.errors);
-  console.log("Visited fields", formik.touched);
+  //console.log("values are:", formik.values);
+  //console.log("errors are:", formik.errors);
+  //console.log("Visited fields", formik.touched);
 
   return (
     <form onSubmit={formik.handleSubmit}>
