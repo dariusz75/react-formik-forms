@@ -8,7 +8,9 @@ export default function App() {
   return (
     <div className="App">
       <section>
-        <div class="alert alert-secondary"></div>
+        <div class="alert alert-secondary">
+          <strong>Simple form without validation</strong>
+        </div>
         <SimpleForm />
       </section>
       <hr />

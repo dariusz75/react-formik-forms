@@ -27,9 +27,6 @@ const SimpleForm = () => {
           onChange={formik.handleChange}
           value={formik.values.name}
         />
-        <small className="form-text text-muted">
-          validate message example{" "}
-        </small>
       </div>
       <div className="form-group">
         <label htmlFor="email">Email</label>
