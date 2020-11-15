@@ -1,6 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
-import "./simple-form-with-validation.css";
+import * as Yup from "yup";
+
+import "../FormWithUseFormikHook/simple-form-with-validation.css";
 
 const initialValues = {
   name: "",
@@ -12,35 +14,19 @@ const onSubmit = (values) => {
   console.log("SimpleFormVithValidation submited values are:", values);
 };
 
-const validate = (values) => {
-  let errors = {};
+const validationSchema = Yup.object({
+  name: Yup.string().required("The name is required"),
+  email: Yup.string()
+    .email("Wromg email format. Please correct.")
+    .required("Email adres is required"),
+  chanel: Yup.string().required("Required")
+});
 
-  if (!values.name) {
-    errors.name = "Required";
-  }
-
-  if (!values.email) {
-    errors.email = "Required";
-  } else if (
-    !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-      values.email
-    )
-  ) {
-    errors.email = "Invalid email format";
-  }
-
-  if (!values.chanel) {
-    errors.chanel = "Required";
-  }
-
-  return errors;
-};
-
-const SimpleFormWithValidation = () => {
+const FormWithYup = () => {
   const formik = useFormik({
     initialValues: initialValues,
     onSubmit: onSubmit,
-    validate: validate
+    validationSchema: validationSchema
   });
 
   //console.log("values are:", formik.values);
@@ -101,4 +87,4 @@ const SimpleFormWithValidation = () => {
   );
 };
 
-export default SimpleFormWithValidation;
+export default FormWithYup;

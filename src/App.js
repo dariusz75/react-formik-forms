@@ -3,8 +3,10 @@ import "./styles.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  SimpleForm,
-  SimpleFormWithValidation,
+  Form,
+  FormWithUseFormikHook,
+  FormWithYup,
+  FormWithFormikComponents,
   ComplexForm
 } from "./components";
 
@@ -13,21 +15,35 @@ export default function App() {
     <div className="App">
       <section>
         <div className="alert alert-secondary">
-          <strong>Simple form without validation</strong>
+          <strong>Form without validation</strong>
         </div>
-        <SimpleForm />
+        <Form />
       </section>
       <hr />
       <section>
         <div className="alert alert-secondary">
-          <strong>Simple form with validation</strong>
+          <strong>Form with useFormik hook validation</strong>
         </div>
-        <SimpleFormWithValidation />
+        <FormWithUseFormikHook />
       </section>
       <hr />
       <section>
         <div className="alert alert-secondary">
-          <strong>More complex form example</strong>
+          <strong>Form with useFormik and Yup validation</strong>
+        </div>
+        <FormWithYup />
+      </section>
+      <hr />
+      <section>
+        <div className="alert alert-secondary">
+          <strong>Form with Formik components</strong>
+        </div>
+        <FormWithFormikComponents />
+      </section>
+      <hr />
+      <section>
+        <div className="alert alert-secondary">
+          <strong>More complex form with useFormik validation</strong>
         </div>
         <ComplexForm />
       </section>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 
-const SimpleForm = () => {
+const Form = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -57,4 +57,4 @@ const SimpleForm = () => {
   );
 };
 
-export default SimpleForm;
+export default Form;
