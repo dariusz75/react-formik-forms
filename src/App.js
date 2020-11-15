@@ -37,6 +37,9 @@ export default function App() {
       <section>
         <div className="alert alert-secondary">
           <strong>Form with Formik components</strong>
+          <div>
+            <smal>And with reseting form data </smal>
+          </div>
         </div>
         <FormWithFormikComponents />
       </section>

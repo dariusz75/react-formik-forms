@@ -2,12 +2,13 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import "../FormWithUseFormikHook/simple-form-with-validation.css";
+import "./FormWithFormikComponents.css";
 
 const initialValues = {
   name: "",
   email: "",
-  chanel: ""
+  chanel: "",
+  about: ""
 };
 
 const validationSchema = Yup.object({
@@ -15,11 +16,14 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Wromg email format. Please correct.")
     .required("Email adres is required"),
-  chanel: Yup.string().required("Required")
+  chanel: Yup.string().required("Required"),
+  about: Yup.string().required("Please provide chanel details")
 });
 
-const onSubmit = (values) => {
+const onSubmit = (values, onSubmitProps) => {
   console.log("SimpleFormVithValidation submited values are:", values);
+  console.log("onSubmitProps are", onSubmitProps);
+  onSubmitProps.resetForm();
 };
 
 const FormWithFormikComponents = () => {
@@ -33,7 +37,9 @@ const FormWithFormikComponents = () => {
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <Field className="form-control" type="text" id="name" name="name" />
-          <ErrorMessage name="name" />
+          <div className="error-message">
+            <ErrorMessage name="name" />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -43,7 +49,9 @@ const FormWithFormikComponents = () => {
             id="email"
             name="email"
           />
-          <ErrorMessage name="email" />
+          <div className="error-message">
+            <ErrorMessage name="email" />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="chanel">Chanel</label>
@@ -53,7 +61,23 @@ const FormWithFormikComponents = () => {
             id="chanel"
             name="chanel"
           />
-          <ErrorMessage name="chanel" />
+          <div className="error-message">
+            <ErrorMessage name="chanel" />
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="about">
+            About <small>(created with as="textarea" props)</small>
+          </label>
+          <Field
+            className="form-control"
+            id="about"
+            name="about"
+            as="textarea"
+          />
+          <div className="error-message">
+            <ErrorMessage name="chanel" />
+          </div>
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
