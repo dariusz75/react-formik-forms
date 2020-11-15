@@ -17,7 +17,7 @@ const onSubmit = (values) => {
 const validationSchema = Yup.object({
   name: Yup.string().required("The name is required"),
   email: Yup.string()
-    .email("Wromg email format. Please correct.")
+    .email("Wrong email format. Please correct.")
     .required("Email adres is required"),
   chanel: Yup.string().required("Required")
 });
