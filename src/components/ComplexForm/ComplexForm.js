@@ -39,11 +39,11 @@ const validate = (values) => {
   }
 
   if (!values.gender) {
-    errors.chanel = "Required";
+    errors.gender = "Required";
   }
 
   if (!values.agree) {
-    errors.chanel = "Required";
+    errors.agree = "Please accept terms and conditions";
   }
 
   return errors;
@@ -57,7 +57,7 @@ const ComplexForm = () => {
   });
 
   //console.log(" values are:", formik.values);
-  //console.log("errors are:", formik.errors);
+  console.log("errors are:", formik.errors);
   //console.log("Visited fields", formik.touched);
 
   return (
@@ -139,10 +139,11 @@ const ComplexForm = () => {
             Female
           </label>
         </div>
+        {formik.touched.gender && formik.errors.gender ? (
+          <small className="form-text text-muted">{formik.errors.gender}</small>
+        ) : null}
       </div>
-      {formik.errors.gender ? (
-        <small className="form-text text-muted">{formik.errors.name}</small>
-      ) : null}
+
       <div className="form-group form-check">
         <input
           type="checkbox"
@@ -156,8 +157,8 @@ const ComplexForm = () => {
         <label className="form-check-label" htmlFor="agree">
           I agree with terms and conditions
         </label>
-        {formik.errors.agree ? (
-          <small className="form-text text-muted">{formik.errors.name}</small>
+        {formik.touched.agree && formik.errors.agree ? (
+          <small className="form-text text-muted">{formik.errors.agree}</small>
         ) : null}
       </div>
       <button type="submit" className="btn btn-primary">
